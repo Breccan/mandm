@@ -1,4 +1,9 @@
 Mandm::Application.routes.draw do
+
+  resources :meshblocks
+
+  root :to => "meshblocks#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

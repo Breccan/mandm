@@ -1,0 +1,14 @@
+<h1>Meshblock data</h1>
+
+<script type="text/javascript">
+  var meshblocks = <%= raw @meshblocks.to_json %>;
+</script>
+
+<ul>
+  <% @meshblocks.each do |mesh| %>
+    <%= mesh.to_json %>
+  <% end %>
+</ul>
+
+
+<%= will_paginate @meshblocks %>
