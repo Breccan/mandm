@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  meshblock: 1
+  cau: 1
+  deprivation: 1
+  deprivation_score: 1
+  population: 1
+
+two:
+  meshblock: 1
+  cau: 1
+  deprivation: 1
+  deprivation_score: 1
+  population: 1
