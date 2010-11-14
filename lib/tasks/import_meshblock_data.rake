@@ -11,7 +11,6 @@ task :import_meshblock_data => :environment do
     c.deprivation_score = row[3]
     c.population = row[4]
     if c.save
-      n = n + 1
       GC.start if n % 50 == 0
     end
     puts "#{n} lines parsed}"
