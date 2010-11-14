@@ -1,14 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
   <title>Mandm</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div id="wrap">
+	<%= yield %>
+	</div>
+	<footer>Built for Mix &amp; Mash - The great New Zealand remix &amp; mashup competition, 2010</footer>
 </body>
 </html>

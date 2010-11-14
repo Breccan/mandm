@@ -1,0 +1,11 @@
+html { height: 100%; }
+body { color: #333; font-size: 90%; line-height: 1.5em; height: 100%; }
+body, p, ol, ul, td { font-family: arial, helvetica, sans-serif; }
+h1, h2, h3, p { margin-bottom: 20px; }
+h1 { font-size: 1.6em; margin-bottom: 20px; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.2em; }
+
+#wrap { min-height: 100%; height: auto!important; height: 100%; margin: 0 auto -23px; } /* sticky footer */
+
+footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }
