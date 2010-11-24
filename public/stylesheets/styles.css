@@ -8,4 +8,15 @@ h3 { font-size: 1.2em; }
 
 #wrap { min-height: 100%; height: auto!important; height: 100%; margin: 0 auto -23px; } /* sticky footer */
 
+
+#slider .ui-corner-all { -moz-border-radius: 0px; }
+#slider .ui-state-default, #slider  #slider .ui-widget-content .ui-state-default, #slider  .ui-widget-header .ui-state-default {
+background:url("/images/arrow.png") no-repeat; border:none; width: 22px; height: 11px; cursor: pointer; }
+#slider .ui-slider-handle { top:-0.9em; }
+#slider.ui-widget-content { background:url("/images/slider_bg.png") repeat-x; border:none; color:#333333; }
+#slider.ui-slider-horizontal { height:1.5em; width:83.714%; margin: 0px auto; }
+
+#years { text-align: center; background:url("/images/slider_bg.png") repeat-x scroll 0 0 transparent; height: 1.5em; font-size:1.1em; position: relative;
+top: -24px; }
+
 footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }
