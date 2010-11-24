@@ -2,13 +2,46 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
 	
+	/* forgive me this is my first time doing js and canvas, feel free to clean up..or redo */
+	
 	var step = $( "#slider" ).slider( "option", "step" );
 	var max = $( "#slider" ).slider( "option", "max" );
-	var max = $( "#slider" ).slider( "option", "min" );
+	var min = $( "#slider" ).slider( "option", "min" );
+	var value = $("#slider").slider("option", "value");
+	var animate = $( "#slider" ).slider( "option", "animate" );
 	
-    $("#slider").slider({max:13, min:1, step:1 });
+    $("#slider").slider({max:13, min:1, step:1, value: 1, animate: true });
 
-/* canvas stuff , forgive me i am learning */
+
+	$('#two003').click(function() {
+		$("#slider").slider("option", "value", 1);
+	});
+	
+	$('#two004').click(function() {
+		$("#slider").slider("option", "value", 3);
+	});
+	
+	$('#two005').click(function() {
+		$("#slider").slider("option", "value", 5);
+	});
+	
+	$('#two006').click(function() {
+		$("#slider").slider("option", "value", 7);
+	});
+	
+	$('#two007').click(function() {
+		$("#slider").slider("option", "value", 9);
+	});
+
+	$('#two008').click(function() {
+		$("#slider").slider("option", "value", 11);
+	});
+	$('#ue').click(function() {
+		$("#slider").slider("option", "value", 13);
+	});
+
+
+
 
 
 	$(function(){ 

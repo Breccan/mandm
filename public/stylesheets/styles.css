@@ -18,5 +18,7 @@ background:url("/images/arrow.png") no-repeat; border:none; width: 22px; height:
 
 #years { text-align: center; background:url("/images/slider_bg.png") repeat-x scroll 0 0 transparent; height: 1.5em; font-size:1.1em; position: relative;
 top: -24px; }
+#years a { color: #333; text-decoration: none; }
+#years a:hover { color: #999; }
 
 footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }
