@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ue: 1
+  after_three: 1
+  after_two_half: 1
+  after_two: 1
+  after_one_half: 1
+  after_half: 1
+  total: 1
+  years: 1
+
+two:
+  ue: 1
+  after_three: 1
+  after_two_half: 1
+  after_two: 1
+  after_one_half: 1
+  after_half: 1
+  total: 1
+  years: 1

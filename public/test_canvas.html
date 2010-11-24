@@ -1,0 +1,52 @@
+<doctype !html>
+
+<canvas id="my_canvas" width="350" height="350">
+Fallback content here
+</canvas>
+
+<script>
+  var canvas = document.getElementById('my_canvas');
+  if (canvas.getContext){
+    var context = canvas.getContext('2d');
+    } else {
+  }
+
+  var gradient = context.createLinearGradient(0, 0, 0, 40);
+  gradient.addColorStop(0, '#a00'); // red
+  gradient.addColorStop(1, '#f00'); // red
+  context.fillStyle = gradient;
+  context.strokeStyle = gradient;
+
+  context.font = 'italic 40px sans-serif';
+  context.textBaseline = 'top';
+  context.fillText('AwesomeCo', 60, 0);
+  context.lineWidth = 2;
+  context.beginPath();
+  context.moveTo(0, 40);
+  context.lineTo(30, 0);
+  context.lineTo(60, 40 );
+  context.lineTo(285, 40 );
+  context.stroke();
+  context.closePath();
+
+  context.save();
+  context.translate(20,20);
+  context.fillRect(0,0,20,20);
+
+
+  context.fillStyle = '#fff';
+  context.strokeStyle = '#fff';
+  context.lineWidth = 2;
+  context.beginPath();
+  context.moveTo(0, 20);
+  context.lineTo(10, 0);
+  context.lineTo(20, 20 );
+  context.lineTo(0, 20 );
+  context.fill();
+  context.closePath();
+  context.restore();
+
+
+
+</script>
+
