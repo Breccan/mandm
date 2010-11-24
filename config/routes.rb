@@ -2,6 +2,7 @@ Mandm::Application.routes.draw do
 
   resources :meshblocks
 
+  match 'about' => 'about#index', :as => :about
   root :to => "meshblocks#index"
 
   # The priority is based upon order of creation:
