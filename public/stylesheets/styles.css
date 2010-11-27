@@ -21,4 +21,50 @@ top: -24px; }
 #years a { color: #333; text-decoration: none; }
 #years a:hover { color: #999; }
 
+#legend { width: 100px; }
+#legend li { margin-bottom: 10px; font-size: 12px; }
+.legend { width: 100px;  height: 20px;
+	background-color: #eee;
+	background: -webkit-gradient(
+	    		linear,
+	    		right top,
+	    		left bottom,
+	    		color-stop(0.11, rgb(242,242,242)),
+				color-stop(1, rgb(230,230,230))
+				);
+ 	background: -moz-linear-gradient(
+				 right top,
+				 rgb(242,242,242) 11%,
+				 rgb(230,230,230) 100%
+				);
+ }
+
+@-webkit-keyframes resize {
+	0% {
+		padding: 0;
+	}
+	50% {
+		padding: 0 20px;	
+	}
+	100% {
+		padding: 0 100px;
+	}
+}
+
+
+.legend div { -webkit-animation-name: resize;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 4;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in-out; 
+	} 
+
+#nzeuro 	{ width: 16.667%; background: #29E2D8; height: 20px; }
+#maori 		{ width: 16.667%; background: #0EDB3E; height: 20px; }
+#pasifika 	{ width: 16.667%; background: #E0E836; height: 20px; }
+#asian 		{ width: 16.667%; background: #E02B8A; height: 20px; }
+#meela 		{ width: 16.667%; background: #EFA91D; height: 20px; }
+#other 		{ width: 16.667%; background: #3CC1EF; height: 20px; }
+
+
 footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }
