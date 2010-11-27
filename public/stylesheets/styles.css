@@ -18,8 +18,8 @@ background:url("/images/arrow.png") no-repeat; border:none; width: 22px; height:
 
 #years { text-align: center; background:url("/images/slider_bg.png") repeat-x scroll 0 0 transparent; height: 1.5em; font-size:1.1em; position: relative;
 top: -24px; }
-#years a { color: #333; text-decoration: none; }
-#years a:hover { color: #999; }
+#years li {text-indent:0;position:relative; color:#333;}
+#years li:hover { color: #999; }
 
 #legend { width: 100px; }
 #legend li { margin-bottom: 10px; font-size: 12px; }
@@ -38,7 +38,7 @@ top: -24px; }
 				 rgb(230,230,230) 100%
 				);
  }
-
+#slider_arrow {width:2px;position:absolute;top:20px;height:30px;background:black;-webkit-transition: left 1s ease-in;-moz-transition:left 1s ease-in;-o-transition:left 1s ease-in;}
 @-webkit-keyframes resize {
 	0% {
 		padding: 0;
@@ -52,13 +52,14 @@ top: -24px; }
 }
 
 
-.legend div { -webkit-animation-name: resize;
+/*.legend div { -webkit-animation-name: resize;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-iteration-count: 4;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-timing-function: ease-in-out; 
-	} 
-
+	} */
+#male {background:#29E2D8;}
+#female {background:#0EDB3E;}
 #nzeuro 	{ width: 16.667%; background: #29E2D8; height: 20px; }
 #maori 		{ width: 16.667%; background: #0EDB3E; height: 20px; }
 #pasifika 	{ width: 16.667%; background: #E0E836; height: 20px; }

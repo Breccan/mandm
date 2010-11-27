@@ -1,10 +1,23 @@
 class DataController < ApplicationController
-
   def data
-    if params[:year] == "2004"
-      render :json => {:left => {:male => 10209, :female => 21022}, :totals =>  {:male => 25000, :female => 26000}}
+    case params[:category]
+    when 'gender'
+      case params[:year]
+      when '2004'
+        render :json => {:left => [[{:key => :male, :value => 2009}, {:key => :female, :value => 2000}],
+                                   [{:key => :male, :value => 2009}, {:key => :female, :value => 2000}],
+                                   [{:key => :male, :value => 2009}, {:key => :female, :value => 2000}]],
+                         :total => [{:key => :male, :value =>12000}, {:key => :female, :value =>12000}]}
+      when '2005'
+        render :json => {:left => [[{:key => :male, :value => 1000}, {:key => :female, :value => 1000}],
+                                   [{:key => :male, :value => 1000}, {:key => :female, :value => 1000}],
+                                   [{:key => :male, :value => 1000}, {:key => :female, :value => 1000}]],
+                         :total => [{:key => :male, :value => 6000}, {:key => :female, :value => 6000}]}
+      else
+        render :json => {:error => 'year not found'}
+      end
     else
-      render :json => {:left => {:male => 10209, :female => 21022}, :totals =>  {:male => 25001, :female => 26001}}
+      render :json => {:error => 'Category not found'}
     end
   end
 end
