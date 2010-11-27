@@ -12,33 +12,27 @@ $(document).ready(function() {
 	
     $("#slider").slider({max:9, min:1, step:1, value: 1, animate: true });
 
-
-	$('#two003').click(function() {
+	
+	$('#two004').click(function() {
 		$("#slider").slider("option", "value", 1);
 	});
 	
-	$('#two004').click(function() {
+	$('#two005').click(function() {
 		$("#slider").slider("option", "value", 3);
 	});
 	
-	$('#two005').click(function() {
+	$('#two006').click(function() {
 		$("#slider").slider("option", "value", 5);
 	});
 	
-	$('#two006').click(function() {
-		$("#slider").slider("option", "value", 7);
-	});
-	
 	$('#two007').click(function() {
-		$("#slider").slider("option", "value", 9);
+		$("#slider").slider("option", "value", 7);
 	});
 
 	$('#two008').click(function() {
-		$("#slider").slider("option", "value", 11);
+		$("#slider").slider("option", "value", 9);
 	});
-	$('#ue').click(function() {
-		$("#slider").slider("option", "value", 13);
-	});
+
 
 /*
 

@@ -19,6 +19,7 @@
 	<script type="text/javascript">
 		Cufon.replace('h1');
 		Cufon.replace('h2');
+		Cufon.replace('#legend li');
 		Cufon.replace('#years a', {hover: true}) ;
 	</script>
   <%= csrf_meta_tag %>
@@ -46,16 +47,39 @@
 				</ul>
 			</div>
 	
-		<div id="legend">
+		<div id="legend" class="grid_2">
 			
 			<ul>
-				<li><div id="nzeuro"></div>NZ European</li>
-				<li><div id="maori"></div>Maori</li>
-				<li><div id="pasifika"></div>Pasifika</li>
-				<li><div id="asian"></div>Asian</li>
-				<li><div id="meela"></div>MEELA</li>
-				<li><div id="other"></div>other</li>
-				<li></li>	
+				<li>NZ European
+					<div class="legend">
+						<div id="nzeuro" class="legend"></div>
+					</div>
+				</li>
+				<li>Maori
+					<div class="legend">
+						<div id="maori" class="ledend"></div>
+					</div>
+				</li>
+				<li>Pasifika
+					<div class="legend">
+						<div id="pasifika"></div>
+					</div>
+				</li>
+				<li>Asian
+					<div class="legend">
+						<div id="asian"></div>
+					</div>
+				</li>
+				<li>MEELA
+					<div class="legend">
+						<div id="meela"></div>
+					</div>
+				</li>
+				<li>other
+					<div class="legend">
+						<div id="other"></div>
+					</div>
+				</li>
 			</ul>
 	
 		</div>
