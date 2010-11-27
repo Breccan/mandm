@@ -18,7 +18,16 @@ ul.list { list-style: disc; padding-left: 30px; }
 
 #nav { height: 105px; float: right; }
 #nav li { float: right; margin-left: 10px; margin-top: 14px; }
-
+#nav li a:hover { opacity: 0.5;
+        		/* Firefox */
+       			-moz-transition: opacity 2s ease 1s;
+        		/* WebKit */
+        		-webkit-transition: opacity 2s ease 1s;
+        		/* Opera */
+        		-o-transition: opacity 2s ease 1s;
+        		/* Standard */
+        		transition: opacity 2s ease 1s;
+				}
 #content { margin-top: 60px; margin-bottom: 20px; }
 
 #slider_wrap { margin-top: 40px; }
