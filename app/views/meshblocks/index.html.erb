@@ -1,9 +1,60 @@
-<h1>Meshblock data</h1>
+
 
 <script type="text/javascript">
   var meshblocks = <%= raw @meshblocks.to_json %>;
 </script>
 
+<div id="slider_wrap" class="clearfix">
+	<div id="slider"></div>
+	<div id="years" class="ui-corner-all grid_10">
+		<ul>
+			<li class="grid_2"><a href="#" id="two004">2004</a></li>
+			<li class="grid_2"><a href="#" id="two005">2005</a></li>
+			<li class="grid_2"><a href="#" id="two006">2006</a></li>
+			<li class="grid_2"><a href="#" id="two007">2007</a></li>
+			<li class="grid_2"><a href="#" id="two008">2008</a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="legend" class="grid_2">
+
+	<ul>
+		<li>NZ European
+			<div class="legend">
+				<div id="nzeuro" class="legend"></div>
+			</div>
+		</li>
+		<li>Maori
+			<div class="legend">
+				<div id="maori" class="ledend"></div>
+			</div>
+		</li>
+		<li>Pasifika
+			<div class="legend">
+				<div id="pasifika"></div>
+			</div>
+		</li>
+		<li>Asian
+			<div class="legend">
+				<div id="asian"></div>
+			</div>
+		</li>
+		<li>MEELA
+			<div class="legend">
+				<div id="meela"></div>
+			</div>
+		</li>
+		<li>other
+			<div class="legend">
+				<div id="other"></div>
+			</div>
+		</li>
+	</ul>
+
+</div>
+
+<h1>Meshblock data</h1>
 <ul>
   <% @meshblocks.each do |mesh| %>
     <%= mesh.to_json %>
