@@ -1,14 +1,36 @@
 html { height: 100%; }
 body { color: #333; font-size: 90%; line-height: 1.5em; height: 100%; }
 body, p, ol, ul, td { font-family: arial, helvetica, sans-serif; }
-h1, h2, h3, p { margin-bottom: 20px; }
-h1 { font-size: 1.6em; margin-bottom: 20px; }
-h2 { font-size: 1.4em; }
-h3 { font-size: 1.2em; }
+p, ul { margin-bottom: 20px; }
+h1 { font-size: 1.9em; margin-bottom: 10px; }
+h2 { font-size: 1.4em; margin-bottom: 10px; }
+h3 { font-size: 1em; margin-bottom: 10px; }
+a { color: #0f949b; }
+a:hover {  color: #29E2D8; }
+hr { height: 10px; background: #eee; border: none;margin-bottom: 25px; }
+ul.list { list-style: disc; padding-left: 30px; }
 
-#wrap { min-height: 100%; height: auto!important; height: 100%; margin: 0 auto -23px; } /* sticky footer */
+#wrap { min-height: 100%; height: auto!important; height: 100%; margin: 10px auto -23px; } /* sticky footer */
 
+#header { height: 105px; display: block; }
+#header img, #header h1 { float: left; }
+#header h1 { margin-top: 42px; margin-left: 20px; font-size: 1.3em; }
 
+#nav { height: 105px; float: right; }
+#nav li { float: right; margin-left: 10px; margin-top: 14px; }
+#nav li a:hover { opacity: 0.5;
+        		/* Firefox */
+       			-moz-transition: opacity 2s ease 1s;
+        		/* WebKit */
+        		-webkit-transition: opacity 2s ease 1s;
+        		/* Opera */
+        		-o-transition: opacity 2s ease 1s;
+        		/* Standard */
+        		transition: opacity 2s ease 1s;
+				}
+#content { margin-top: 60px; margin-bottom: 20px; }
+
+#slider_wrap { margin-top: 40px; }
 #slider .ui-corner-all { -moz-border-radius: 0px; }
 #slider .ui-state-default, #slider  #slider .ui-widget-content .ui-state-default, #slider  .ui-widget-header .ui-state-default {
 background:url("/images/arrow.png") no-repeat; border:none; width: 22px; height: 11px; cursor: pointer; }
@@ -20,6 +42,9 @@ background:url("/images/arrow.png") no-repeat; border:none; width: 22px; height:
 top: -24px; }
 #years li {text-indent:0;position:relative; color:#333;}
 #years li:hover { color: #999; }
+
+#about_project { width: 60%; float: left; margin-right: 5%; }
+#about_us { width: 35%; float: left; }
 
 #legend { width: 100px; }
 #legend li { margin-bottom: 10px; font-size: 12px; }
@@ -68,4 +93,4 @@ top: -24px; }
 #other 		{ width: 16.667%; background: #3CC1EF; height: 20px; }
 
 
-footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }
+#footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }

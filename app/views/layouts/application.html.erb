@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>Mandm</title>
+  <title>Roll Call NZ</title>
 	<!--[if IE]>
 	    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -22,7 +22,6 @@
                               %>
 	<script type="text/javascript">
 		Cufon.replace('h1');
-		Cufon.replace('h2');
 		Cufon.replace('#legend li');
 		Cufon.replace('#years li', {hover: true}) ;
 	</script>
@@ -31,65 +30,22 @@
 <body>
 	<div id="wrap">
 		<div class="container_10">
-			<header> <!-- HTML5 header tag -->
-		
-			</header>
-	  	<section id="intro">
-	    	<h2 class="intro">This is our thing, like all things it is not nothing</h2>
-	    </section>
-
-			<div id="years" class="ui-corner-all grid_10">
-			  <div id="slider_arrow"></div>
-				<ul>
-					<li class="grid_2" id="y2004">2004</li>
-					<li class="grid_2" id="y2005">2005</li>
-					<li class="grid_2" id="y2006">2006</li>
-					<li class="grid_2" id="y2007">2007</li>
-					<li class="grid_2" id="y2008">2008</li>
-				</ul>
-			</div>
-	
-		<div id="legend" class="grid_2">
+			<header id="header"> <!-- HTML5 header tag -->
+				<a href="/"><img src="/images/rollcallNZ.gif" alt="Roll Call NZ"/></a>
+		    <h1 class="intro">Who is leaving, who is staying?</h1>
 			
-			<ul>
-				<li>NZ European
-					<div class="legend">
-						<div id="male" class="legend"></div>
-					</div>
-				</li>
-				<li>Maori
-					<div class="legend">
-						<div id="female" class="legend"></div>
-					</div>
-				</li>
-				<li>Pasifika
-					<div class="legend">
-						<div id="pasifika"></div>
-					</div>
-				</li>
-				<li>Asian
-					<div class="legend">
-						<div id="asian"></div>
-					</div>
-				</li>
-				<li>MEELA
-					<div class="legend">
-						<div id="meela"></div>
-					</div>
-				</li>
-				<li>other
-					<div class="legend">
-						<div id="other"></div>
-					</div>
-				</li>
-			</ul>
-	
-		</div>
-	
-		<%= yield %>
-	
+				<nav id="nav">
+					<ul>
+						<li><a href="/about"><img src="/images/about.gif" alt="About"/></a></li>
+						<li><a href="/more"><img src="/images/more.gif" alt="More"/></a></li>
+					</ul>
+				</nav>
+			</header>
+    <div id="content" class="clearfix">
+			<%= yield %>
+			</div>
 		</div>
 	</div>
-	<footer>Built for Mix &amp; Mash - The great New Zealand remix &amp; mashup competition, 2010</footer>
+	<footer id="footer">Built for Mix &amp; Mash - The great New Zealand remix &amp; mashup competition, 2010</footer>
 </body>
 </html>

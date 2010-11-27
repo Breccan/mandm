@@ -4,4 +4,8 @@ class AboutController < ApplicationController
 
   end
   
+  def more
+    
+  end
+  
 end

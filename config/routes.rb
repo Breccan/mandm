@@ -4,7 +4,12 @@ Mandm::Application.routes.draw do
   match "data" => "data#data", :as => :data
 
   match 'about' => 'about#index', :as => :about
+  match 'more' => 'about#more', :as => :about
+  
   root :to => "meshblocks#index"
+  
+ 
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

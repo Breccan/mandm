@@ -46,8 +46,8 @@
       this.fill();
       if (label){
         value = (value > 0 ? Math.floor(value) : 0) + ' students';
-        if (context.measureText(label).width + BLOB_PADDING > r*2 || 
-            context.measureText(value).width + BLOB_PADDING > r*2 ){
+        if (this.measureText(label).width + BLOB_PADDING > r*2 || 
+            this.measureText(value).width + BLOB_PADDING > r*2 ){
           this.fillStyle = BLOB_TEXT_COLOUR_ON_BACKGROUND;
           this.fillText(label, x, y+r+BLOB_PADDING+BLOB_TEXT_HEIGHT/2);
           this.fillText(value, x, y+r+BLOB_PADDING+BLOB_TEXT_HEIGHT*1.5);
@@ -105,7 +105,6 @@
           context.clear();
           $.each(context.blobs, function(i, blob){
             if (blob.origin && blob.change){
-              blob.start_time = blob.start_time || 0;
               var time = animation_time-Number(blob.start_time);
               var duration = BLOB_ANIMATION_DURATION-Number(blob.start_time);
               blob.set({
@@ -115,11 +114,11 @@
               });
               // merge twins
               if (blob.twin && !blob.twin.goal && blob.is_further_out_than(blob.touch_twin_at) ) {
+                console.log(blob.name == "asian")
                 var total = blob.twin.value + blob.goal.value;
                 var final_position = blob.greatest_position(blob.goal, blob.twin);
                 blob.to(total, final_position);
-                blob.twin.to(total, final_position);
-                blob.twin.start_time = animation_time;
+                blob.twin.to(total, final_position, animation_time);
               }
             }
             blob.draw(context)
@@ -127,33 +126,6 @@
         };
       };
       var interval = setInterval(run, BLOB_ANIMATION_QUALITY);
-    },
-    load_blobs: function(data_params, catch_year){
-      context = this;
-      $.getJSON('/data/', data_params, function(data){
-        if(data.error){
-          if (!catch_year){throw data.error;}
-        } else {
-          if(context.center_blob){
-            var blob = context.center_blob;
-            blob.to($.sum_values(data.total));
-          } else {
-            var blob = new Blob('total students', context, $.sum_values(data.total), context.canvas.width/2, context.canvas.height/2, {is_origin:true});
-            context.center_blob = blob;
-          }
-          context.draw();
-          var i = 0;
-          interval = setInterval(function(){
-            blob.spawn(data.left[i]);
-            i++;
-            if (i == data.left.length){
-              clearInterval(interval);
-              data_params.year++
-              context.load_blobs(data_params, true);
-            }
-          }, BLOB_STEP_INTERVAL)
-        }
-      });
     },
     //setup styles so we don't need to declare them every time we draw, yo. 
     setup: function(){
@@ -196,11 +168,12 @@
       if (dimensions.y     !== undefined){ this.y     = dimensions.y; }
     },
     //set dimensions state objects used by the animation method.
-    to: function(value, position){
+    to: function(value, position, start_time){
       position = position || {x: this.x, y: this.y}
       this.origin = {value:this.value, x:this.x, y:this.y};
       this.goal   = {value:value, x:position.x, y:position.y};
       this.change = {value:value - this.value, x:position.x - this.x, y:position.y - this.y};
+      this.start_time = start_time || 0;
     },
     //find the radius given a value
     radius: function(value){
@@ -261,12 +234,40 @@
     }
   }
   $.extend(Blob.prototype, BlobPrototype);
-  $(document).ready(function(){
+	$(document).ready(function(){
     var context;
     if ($('#world') && (context = $('#world')[0].getContext('2d'))){
       $.extend(context, blobbyContext);
       context.setup();
-      context.load_blobs({category:'gender', year:2004});
+      $.load_blobs(context, {category:'ethnicity', year:2004});
     };
   });
+  $.load_blobs = function(context, data_params, catch_year){
+    $.getJSON('/data/', data_params, function(data){
+      if(data.error){
+        if (!catch_year){throw data.error;}
+      } else {
+        if(context.center_blob){
+          var blob = context.center_blob;
+          blob.to($.sum_values(data.total));
+        } else {
+          var blob = new Blob('total students', context, $.sum_values(data.total), context.canvas.width/2, context.canvas.height/2, {is_origin:true});
+          context.center_blob = blob;
+        }
+        context.draw();
+        var i = 0;
+        interval = setInterval(function(){
+          blob.spawn(data.left[i]);
+          i++;
+          if (i == data.left.length){
+            //load the next lot.
+            clearInterval(interval);
+            data_params.year++;
+            $.load_blobs(context, data_params, update_frequency, true);
+          }
+        }, BLOB_STEP_INTERVAL)
+      }
+    });
+  }
 })(jQuery);
+

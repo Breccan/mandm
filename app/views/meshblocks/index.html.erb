@@ -1,3 +1,65 @@
+<script type="text/javascript">
+  var meshblocks = <%= raw @meshblocks.to_json %>;
+</script>
+
+<div id="slider_wrap" class="clearfix">
+	<div id="slider"></div>
+	<div id="years" class="ui-corner-all grid_10">
+		<ul>
+			<li class="grid_2" id="y2004">2004</li>
+			<li class="grid_2" id="y2005">2005</li>
+			<li class="grid_2" id="y2006">2006</li>
+			<li class="grid_2" id="y2007">2007</li>
+			<li class="grid_2" id="y2008">2008</li>
+		</ul>
+	</div>
+</div>
+
+<div id="legend" class="grid_2">
+
+	<ul>
+		<li>NZ European
+			<div class="legend">
+				<div id="nzeuro" class="legend"></div>
+			</div>
+		</li>
+		<li>Maori
+			<div class="legend">
+				<div id="maori" class="ledend"></div>
+			</div>
+		</li>
+		<li>Pasifika
+			<div class="legend">
+				<div id="pasifika"></div>
+			</div>
+		</li>
+		<li>Asian
+			<div class="legend">
+				<div id="asian"></div>
+			</div>
+		</li>
+		<li>MEELA
+			<div class="legend">
+				<div id="meela"></div>
+			</div>
+		</li>
+		<li>other
+			<div class="legend">
+				<div id="other"></div>
+			</div>
+		</li>
+	</ul>
+
+</div>
+
+<h1>Meshblock data</h1>
+<ul>
+  <% @meshblocks.each do |mesh| %>
+    <%= mesh.to_json %>
+  <% end %>
+</ul>
+
+<%= will_paginate @meshblocks %>
 <canvas id="world" width="500" height="500">
   You need canvas
 </canvas>
