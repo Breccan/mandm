@@ -1,6 +1,7 @@
 Mandm::Application.routes.draw do
 
   resources :meshblocks
+  match "data" => "data#data", :as => :data
 
   root :to => "meshblocks#index"
 
