@@ -17,40 +17,52 @@
 	<script src="/javascripts/cufon.js" type="text/javascript"></script>
 	<script src="/javascripts/Museo_Sans_500_400.font.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		Cufon.replace('h1'); // Works without a selector engine
+		Cufon.replace('h1');
 		Cufon.replace('h2');
-		Cufon.replace('#years');
+		Cufon.replace('#years a', {hover: true}) ;
 	</script>
   <%= csrf_meta_tag %>
 </head>
 <body>
 	<div id="wrap">
-		<div class="container_14">
-		<header> <!-- HTML5 header tag -->
+		<div class="container_10">
+			<header> <!-- HTML5 header tag -->
 		
-		</header>
-  	<section id="intro">
-    	<h2 class="intro">This is our thing, like all things it is not nothing</h2>
-    </section>
+			</header>
+	  	<section id="intro">
+	    	<h2 class="intro">This is our thing, like all things it is not nothing</h2>
+	    </section>
 
-		<div id="slider" >
+			<div id="slider" >
 			
-		</div>
-		<div id="years" class="ui-corner-all grid_14">
+			</div>
+			<div id="years" class="ui-corner-all grid_10">
+				<ul>
+					<li class="grid_2"><a href="#" id="two004">2004</a></li>
+					<li class="grid_2"><a href="#" id="two005">2005</a></li>
+					<li class="grid_2"><a href="#" id="two006">2006</a></li>
+					<li class="grid_2"><a href="#" id="two007">2007</a></li>
+					<li class="grid_2"><a href="#" id="two008">2008</a></li>
+				</ul>
+			</div>
+	
+		<div id="legend">
+			
 			<ul>
-				<li class="grid_2">2003</li>
-				<li class="grid_2">2004</li>
-				<li class="grid_2">2005</li>
-				<li class="grid_2">2006</li>
-				<li class="grid_2">2007</li>
-				<li class="grid_2">2008</li>
-				<li class="grid_2">UE</li>
+				<li><div id="nzeuro"></div>NZ European</li>
+				<li><div id="maori"></div>Maori</li>
+				<li><div id="pasifika"></div>Pasifika</li>
+				<li><div id="asian"></div>Asian</li>
+				<li><div id="meela"></div>MEELA</li>
+				<li><div id="other"></div>other</li>
+				<li></li>	
 			</ul>
+	
 		</div>
 	
+		<%= yield %>
 	
-	<%= yield %>
-	
+		</div>
 	</div>
 	<footer>Built for Mix &amp; Mash - The great New Zealand remix &amp; mashup competition, 2010</footer>
 </body>

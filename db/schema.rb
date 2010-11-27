@@ -10,7 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101113021702) do
+ActiveRecord::Schema.define(:version => 20101124025254) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.integer  "started"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups_years", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "year_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "meshblocks", :force => true do |t|
     t.integer  "meshblock"
@@ -18,6 +33,19 @@ ActiveRecord::Schema.define(:version => 20101113021702) do
     t.integer  "deprivation"
     t.integer  "deprivation_score"
     t.integer  "population"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "years", :force => true do |t|
+    t.integer  "ue"
+    t.integer  "after_three"
+    t.integer  "after_two_half"
+    t.integer  "after_two"
+    t.integer  "after_one_half"
+    t.integer  "after_half"
+    t.integer  "total"
+    t.integer  "years"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
