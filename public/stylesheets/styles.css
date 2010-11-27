@@ -14,7 +14,7 @@ h3 { font-size: 1.2em; }
 background:url("/images/arrow.png") no-repeat; border:none; width: 22px; height: 11px; cursor: pointer; }
 #slider .ui-slider-handle { top:-0.9em; }
 #slider.ui-widget-content { background:none; border:none; color:#333333; }
-#slider.ui-slider-horizontal { height:1.5em; width:83.714%; margin: 0px auto; }
+#slider.ui-slider-horizontal { height:1.5em; width:78%; margin: 0px auto; }
 
 #years { text-align: center; background:url("/images/slider_bg.png") repeat-x scroll 0 0 transparent; height: 1.5em; font-size:1.1em; position: relative;
 top: -24px; }

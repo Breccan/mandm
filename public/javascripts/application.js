@@ -10,7 +10,7 @@ $(document).ready(function() {
 	var value = $("#slider").slider("option", "value");
 	var animate = $( "#slider" ).slider( "option", "animate" );
 	
-    $("#slider").slider({max:13, min:1, step:1, value: 1, animate: true });
+    $("#slider").slider({max:9, min:1, step:1, value: 1, animate: true });
 
 
 	$('#two003').click(function() {
@@ -40,9 +40,7 @@ $(document).ready(function() {
 		$("#slider").slider("option", "value", 13);
 	});
 
-
-
-
+/*
 
 	$(function(){ 
 		var canvas = document.getElementById('legend'); 
@@ -87,4 +85,5 @@ $(document).ready(function() {
 		context.fillText('Other', 50, 164);	
 
 	});
+*/
 });
