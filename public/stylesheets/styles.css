@@ -46,8 +46,8 @@ top: -24px; }
 #about_project { width: 60%; float: left; margin-right: 5%; }
 #about_us { width: 35%; float: left; }
 
-#legend { width: 100px; }
-#legend li { margin-bottom: 10px; font-size: 12px; }
+#legend_sex, #legend_ethnicity { width: 100px; display: none; }
+#legend_sex, #legend_ethnicity li { margin-bottom: 10px; font-size: 12px; }
 .legend { width: 100px;  height: 20px;
 	background-color: #eee;
 	background: -webkit-gradient(
@@ -64,6 +64,8 @@ top: -24px; }
 				);
  }
 
+.display { display: block; }
+.hide { display: none; }
 
 #slider_arrow {width:2px;position:absolute;top:20px;height:30px;background:black;-webkit-transition: left 1s ease-in;-moz-transition:left 1s ease-in;-o-transition:left 1s ease-in;}
 @-webkit-keyframes resize {
@@ -78,15 +80,9 @@ top: -24px; }
 	}
 }
 
-
-/*.legend div { -webkit-animation-name: resize;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-iteration-count: 4;
-	-webkit-animation-direction: alternate;
-	-webkit-animation-timing-function: ease-in-out; 
-	} */
-#male {background:#29E2D8;}
-#female {background:#0EDB3E;}
+ 
+#male 		 {background:#29E2D8; }
+#female 	{ background:#0EDB3E; }
 #nzeuro 	{ width: 16.667%; background: #29E2D8; height: 20px; }
 #maori 		{ width: 16.667%; background: #0EDB3E; height: 20px; }
 #pasifika 	{ width: 16.667%; background: #E0E836; height: 20px; }
@@ -94,5 +90,15 @@ top: -24px; }
 #meela 		{ width: 16.667%; background: #EFA91D; height: 20px; }
 #other 		{ width: 16.667%; background: #3CC1EF; height: 20px; }
 
+#left_col { width: 100px; margin-right: 40px; }
+
+#selection { width: 100px; margin-bottom: 10px; }
+#selection a { 	position: relative; float:left; clear: both; font-size: .9em;  border: 1px solid #ddd; padding: 2px 10px 2px 10px; margin: 0px 3px 5px 0px; 
+				background: url('/images/button_bg.png') repeat-x #ededed;  /* backup gradient image */
+				background: -moz-linear-gradient(center top , #FFFFFF, #EDEDED); 
+				-moz-border-radius: 10px; /* FF */
+				-webkit-border-radius: 10px; /* Webkit */
+			 }
+				
 
 #footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }
