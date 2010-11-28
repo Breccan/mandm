@@ -1,5 +1,3 @@
-
-
 <script type="text/javascript">
   var meshblocks = <%= raw @meshblocks.to_json %>;
 </script>
@@ -8,11 +6,11 @@
 	<div id="slider"></div>
 	<div id="years" class="ui-corner-all grid_10">
 		<ul>
-			<li class="grid_2"><a href="#" id="two004">2004</a></li>
-			<li class="grid_2"><a href="#" id="two005">2005</a></li>
-			<li class="grid_2"><a href="#" id="two006">2006</a></li>
-			<li class="grid_2"><a href="#" id="two007">2007</a></li>
-			<li class="grid_2"><a href="#" id="two008">2008</a></li>
+			<li class="grid_2" id="y2004">2004</li>
+			<li class="grid_2" id="y2005">2005</li>
+			<li class="grid_2" id="y2006">2006</li>
+			<li class="grid_2" id="y2007">2007</li>
+			<li class="grid_2" id="y2008">2008</li>
 		</ul>
 	</div>
 </div>
@@ -62,3 +60,6 @@
 </ul>
 
 <%= will_paginate @meshblocks %>
+<canvas id="world" width="500" height="500">
+  You need canvas
+</canvas>

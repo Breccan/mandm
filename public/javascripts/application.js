@@ -1,37 +1,36 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
-	
 	/* forgive me this is my first time doing js and canvas, feel free to clean up..or redo */
 	
-	var step = $( "#slider" ).slider( "option", "step" );
-	var max = $( "#slider" ).slider( "option", "max" );
-	var min = $( "#slider" ).slider( "option", "min" );
-	var value = $("#slider").slider("option", "value");
-	var animate = $( "#slider" ).slider( "option", "animate" );
-	
-    $("#slider").slider({max:9, min:1, step:1, value: 1, animate: true });
-
-	
-	$('#two004').click(function() {
-		$("#slider").slider("option", "value", 1);
-	});
-	
-	$('#two005').click(function() {
-		$("#slider").slider("option", "value", 3);
-	});
-	
-	$('#two006').click(function() {
-		$("#slider").slider("option", "value", 5);
-	});
-	
-	$('#two007').click(function() {
-		$("#slider").slider("option", "value", 7);
-	});
-
-	$('#two008').click(function() {
-		$("#slider").slider("option", "value", 9);
-	});
+	// var step = $( "#slider" ).slider( "option", "step" );
+	// 	var max = $( "#slider" ).slider( "option", "max" );
+	// 	var min = $( "#slider" ).slider( "option", "min" );
+	// 	var value = $("#slider").slider("option", "value");
+	// 	var animate = $( "#slider" ).slider( "option", "animate" );
+	// 	
+	//     $("#slider").slider({max:9, min:1, step:1, value: 1, animate: true });
+	// 
+	// 	
+	// 	$('#two004').click(function() {
+	// 		$("#slider").slider("option", "value", 1);
+	// 	});
+	// 	
+	// 	$('#two005').click(function() {
+	// 		$("#slider").slider("option", "value", 3);
+	// 	});
+	// 	
+	// 	$('#two006').click(function() {
+	// 		$("#slider").slider("option", "value", 5);
+	// 	});
+	// 	
+	// 	$('#two007').click(function() {
+	// 		$("#slider").slider("option", "value", 7);
+	// 	});
+	// 
+	// 	$('#two008').click(function() {
+	// 		$("#slider").slider("option", "value", 9);
+	// 	});
 
 
 /*
