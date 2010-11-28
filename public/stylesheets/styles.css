@@ -64,32 +64,20 @@ top: -24px; }
 				);
  }
 
-@-webkit-keyframes resize {
-	0% {
-		padding: 0;
-	}
-	50% {
-		padding: 0 20px;	
-	}
-	100% {
-		padding: 0 100px;
-	}
-}
-
-
-.legend div { -webkit-animation-name: resize;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-iteration-count: 4;
-	-webkit-animation-direction: alternate;
-	-webkit-animation-timing-function: ease-in-out; 
-	} 
-
-#nzeuro 	{ width: 16.667%; background: #29E2D8; height: 20px; }
-#maori 		{ width: 16.667%; background: #0EDB3E; height: 20px; }
-#pasifika 	{ width: 16.667%; background: #E0E836; height: 20px; }
-#asian 		{ width: 16.667%; background: #E02B8A; height: 20px; }
-#meela 		{ width: 16.667%; background: #EFA91D; height: 20px; }
-#other 		{ width: 16.667%; background: #3CC1EF; height: 20px; }
+#nzeuro 	{ width: 16.667%; background: #29E2D8; }
+#maori 		{ width: 16.667%; background: #0EDB3E; }
+#pasifika 	{ width: 16.667%; background: #E0E836; }
+#asian 		{ width: 16.667%; background: #E02B8A; }
+#meela 		{ width: 16.667%; background: #EFA91D; }
+#other 		{ width: 16.667%; background: #3CC1EF; }
+#nzeuro { width: 1px; padding-right: 0px; height: 20px;
+ 				-webkit-transition: padding-right 1s ease-in-out;
+  				-o-transition: padding-right 1s ease-in-out;
+  				-moz-transition: padding-right 1s ease-in-out;
+  				transition: padding-right 1s ease-in-out;
+			}
+			
+#nzeuro:hover { padding-right: 100px; }
 
 
 #footer { display: block; height: 23px; margin-top: -23px; background: #eee; color: #9f9f9f; font-size: .8em; text-align: center; }
