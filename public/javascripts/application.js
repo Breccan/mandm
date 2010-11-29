@@ -3,6 +3,22 @@
 $(document).ready(function() {
 	/* forgive me this is my first time doing js and canvas, feel free to clean up..or redo */
 	
+	$("a.show_eth").click(function() { 
+		$(this).addClass("active");
+		$("a.show_sex").removeClass("active");
+        $("#legend_ethnicity").show("slow");
+		$("#legend_sex").hide("slow");
+
+    });
+
+	$("a.show_sex").click(function() {
+		$(this).addClass("active");
+		$("a.show_eth").removeClass("active");
+		$("#legend_sex").show("slow");
+		$("#legend_ethnicity").hide("slow");
+
+    });
+	
 	// var step = $( "#slider" ).slider( "option", "step" );
 	// 	var max = $( "#slider" ).slider( "option", "max" );
 	// 	var min = $( "#slider" ).slider( "option", "min" );
