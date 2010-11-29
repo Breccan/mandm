@@ -2,15 +2,15 @@
   /* * * * * * * *
    * Tweakables  *
    * * * * * * * */
-  var BLOB_MARGIN = 15; //minimum margin between blob and center blob
-  var BLOB_PADDING = 10; //for the text labels;
+  var BLOB_MARGIN = 40; //minimum margin between blob and center blob
+  var BLOB_PADDING = 15; //for the text labels;
   var BLOB_AREA_EXPONENT = 1; //exponent for children to area
   var BLOB_ANIMATION_DURATION = 1000;
   var BLOB_ANIMATION_QUALITY = 10; //number of milliseconds per frame
   var BLOB_ANIMATION_EASING = 'easeInOutElastic';
   var BLOB_MARGIN_MULTIPLIER = 2.5;
   var BLOB_DEFAULT_COLOR = '#444'
-  var BLOB_STEP_INTERVAL = 2000;
+  var BLOB_STEP_INTERVAL = 5000;
   var BLOB_TEXT_STYLE = 'normal 10px sans-serif' //if you use @font-face you can stick museo in here too :) (maybe)
   var BLOB_TEXT_COLOUR_ON_BACKGROUND = '#999'
   var BLOB_TEXT_COLOUR_ON_BLOB = 'white'
@@ -251,7 +251,7 @@
           var blob = context.center_blob;
           blob.to($.sum_values(data.total));
         } else {
-          var blob = new Blob('total students', context, $.sum_values(data.total), context.canvas.width/2, context.canvas.height/2, {is_origin:true});
+          var blob = new Blob('Started in 2004', context, $.sum_values(data.total), context.canvas.width/2, context.canvas.height/2, {is_origin:true});
           context.center_blob = blob;
         }
         context.draw();

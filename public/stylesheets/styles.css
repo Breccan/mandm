@@ -84,12 +84,12 @@ top: -24px; }
  
 #male 		{ width: 50%; background:#29E2D8; }
 #female 	{ width: 50%; background:#0EDB3E; }
-#nzeuro 	{ width: 16.667%; background: #29E2D8; }
-#maori 		{ width: 16.667%; background: #0EDB3E; }
-#pasifika 	{ width: 16.667%; background: #E0E836; }
-#asian 		{ width: 16.667%; background: #E02B8A; }
-#meela 		{ width: 16.667%; background: #EFA91D; }
-#other 		{ width: 16.667%; background: #3CC1EF; }
+#nzeuro 	{ width: 59.5%; background: #29E2D8; }
+#maori 		{ width: 22.3%; background: #0EDB3E; }
+#pasifika 	{ width: 8.3%; background: #E0E836; }
+#asian 		{ width: 7.4%; background: #E02B8A; }
+#meela 		{ width: 1.1%; background: #EFA91D; }
+#other 		{ width: 1%; background: #3CC1EF; }
 
 #left_col { width: 100px; margin-right: 40px; float: left; min-height: 550px; }
 
