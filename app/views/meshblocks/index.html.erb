@@ -1,7 +1,3 @@
-<script type="text/javascript">
-  var meshblocks = <%= raw @meshblocks.to_json %>;
-</script>
-
 <div id="slider_wrap" class="clearfix">
 	<div id="slider"></div>
 	<div id="years" class="ui-corner-all grid_10">
@@ -52,14 +48,6 @@
 
 </div>
 
-<h1>Meshblock data</h1>
-<ul>
-  <% @meshblocks.each do |mesh| %>
-    <%= mesh.to_json %>
-  <% end %>
-</ul>
-
-<%= will_paginate @meshblocks %>
 <canvas id="world" width="500" height="500">
   You need canvas
 </canvas>
