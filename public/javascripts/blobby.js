@@ -8,9 +8,9 @@
   var BLOB_ANIMATION_DURATION = 1000;
   var BLOB_ANIMATION_QUALITY = 10; //number of milliseconds per frame
   var BLOB_ANIMATION_EASING = 'easeInOutElastic';
-  var BLOB_MARGIN_MULTIPLIER = 2.5;
+  var BLOB_MARGIN_MULTIPLIER = 1.7;
   var BLOB_DEFAULT_COLOR = '#444'
-  var BLOB_STEP_INTERVAL = 5000;
+  var BLOB_STEP_INTERVAL = 3000;
   var BLOB_TEXT_STYLE = 'normal 10px sans-serif' //if you use @font-face you can stick museo in here too :) (maybe)
   var BLOB_TEXT_COLOUR_ON_BACKGROUND = '#999'
   var BLOB_TEXT_COLOUR_ON_BLOB = 'white'
@@ -44,8 +44,8 @@
       this.quadraticCurveTo( x-r+n, y+r-n, x-r+o,    y+o);
       this.closePath();
       this.fill();
-      if (label){
-        value = (value > 0 ? Math.floor(value) : 0) + ' students';
+      if (label && value > 0){
+        value += ' students';
         if (this.measureText(label).width + BLOB_PADDING > r*2 || 
             this.measureText(value).width + BLOB_PADDING > r*2 ){
           this.fillStyle = BLOB_TEXT_COLOUR_ON_BACKGROUND;
@@ -114,7 +114,6 @@
               });
               // merge twins
               if (blob.twin && !blob.twin.goal && blob.is_further_out_than(blob.touch_twin_at) ) {
-                console.log(blob.name == "asian")
                 var total = blob.twin.value + blob.goal.value;
                 var final_position = blob.greatest_position(blob.goal, blob.twin);
                 blob.to(total, final_position);
@@ -132,6 +131,11 @@
       this.font = BLOB_TEXT_STYLE;
       this.textBaseline = "middle"
       this.textAlign = "center"
+    },
+    stop: function(){
+      if (this.interval){
+        clearInterval(this.interval);
+      }
     }
   }
   /* * * * * * * * * *
@@ -144,6 +148,8 @@
     var $legend;
     if ($legend = $('#'+name)){
       this.color = $legend.css('backgroundColor');
+      this.label = $.trim($legend.closest('li').text());
+      this.label = this.label || this.name;
     }
     this.twin = context.get_blob(name);
     this.add_to_context(context)
@@ -155,7 +161,7 @@
       if (this.change && (this.change.x > 0 || this.change.y > 0)){
         context.circle(this.x, this.y, this.radius(), this.color);
       } else {
-        context.circle(this.x, this.y, this.radius(), this.color, this.name, (this.goal ? this.goal.value : this.value));
+        context.circle(this.x, this.y, this.radius(), this.color, this.label, (this.goal ? this.goal.value : this.value));
       }
     },
     add_to_context: function(context){
@@ -216,7 +222,7 @@
       if (this.change && position){
         return (this.change.x >= 0 && this.x >= position.x ||
                 this.change.x <= 0 && this.x <= position.x)&&
-               (this.change.y >= 0 && this.y <= position.y ||
+               (this.change.y >= 0 && this.y >= position.y ||
                 this.change.y <= 0 && this.y <= position.y)
       }
     },
@@ -234,19 +240,24 @@
     }
   }
   $.extend(Blob.prototype, BlobPrototype);
-	$(document).ready(function(){
-    var context;
-    if ($('#world') && (context = $('#world')[0].getContext('2d'))){
-      $.extend(context, blobbyContext);
-      context.setup();
-      $.load_blobs(context, {category:'ethnicity', year:2004});
-    };
-  });
-  $.load_blobs = function(context, data_params, catch_year){
+	$.fn.load_blobs = function(data_params){
+    var context = $(this)[0].getContext('2d');
+    if (context){
+      if (!context.add_blobs){
+        $.extend(context, blobbyContext);
+        context.setup();
+      }
+      get_data(context, data_params);
+    }
+    return $(this);
+  }
+  
+  var get_data = function(context, data_params, catch_year){
     $.getJSON('/data/', data_params, function(data){
       if(data.error){
         if (!catch_year){throw data.error;}
       } else {
+        context.stop();
         if(context.center_blob){
           var blob = context.center_blob;
           blob.to($.sum_values(data.total));
@@ -256,18 +267,45 @@
         }
         context.draw();
         var i = 0;
-        interval = setInterval(function(){
+        context.interval = setInterval(function(){
+          $.advance_slider(data_params.year);
           blob.spawn(data.left[i]);
           i++;
           if (i == data.left.length){
-            //load the next lot.
-            clearInterval(interval);
+            //load the next year.
+            clearInterval(context.interval);
             data_params.year++;
-            $.load_blobs(context, data_params, update_frequency, true);
+            get_data(context, data_params, true)
           }
         }, BLOB_STEP_INTERVAL)
       }
     });
   }
+  
+	$.advance_slider = function(year){
+	  if ($('#y'+year)){
+	    $('#slider_arrow').css({left:($('#y'+year).position().left+$('#y'+year).width()/2)+"px"});
+	  }
+	}
+	
+  $(document).ready(function(){
+    $('#world').load_blobs({category:'ethnicity', year:2004});
+    $('#years li').click(function(){
+	    $('#world').load_blobs({category:'ethnicity', year:Number($(this).attr('id').substr(1))})
+	    $('#slider_arrow').css({left:($(this).position().left+$(this).width()/2)+"px"});
+	  });
+    $("a.show_eth").click(function() { 
+		  $(this).addClass("active");
+		  $("a.show_sex").removeClass("active");
+      $("#legend_ethnicity").show("slow");
+		  $("#legend_sex").hide("slow");
+    });
+	  $("a.show_sex").click(function() {
+		  $(this).addClass("active");
+		  $("a.show_eth").removeClass("active");
+		  $("#legend_sex").show("slow");
+		  $("#legend_ethnicity").hide("slow");
+    });
+  });
 })(jQuery);
 

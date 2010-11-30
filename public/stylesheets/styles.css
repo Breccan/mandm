@@ -30,7 +30,7 @@ ul.list { list-style: disc; padding-left: 30px; }
 				}
 #content { margin-top: 60px; margin-bottom: 20px; }
 
-#slider_wrap { margin-top: 40px; }
+#slider_wrap { margin-top: 40px; position:relative;}
 #slider .ui-corner-all { -moz-border-radius: 0px; }
 #slider .ui-state-default, #slider  #slider .ui-widget-content .ui-state-default, #slider  .ui-widget-header .ui-state-default {
 background:url("/images/arrow.png") no-repeat; border:none; width: 22px; height: 11px; cursor: pointer; }
