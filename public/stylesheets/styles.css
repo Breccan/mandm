@@ -10,7 +10,7 @@ a:hover {  color: #29E2D8; }
 hr { height: 10px; background: #eee; border: none;margin-bottom: 25px; }
 ul.list { list-style: disc; padding-left: 30px; }
 
-#wrap { min-height: 100%; height: auto!important; height: 100%; margin: 10px auto -23px; } /* sticky footer */
+#wrap { min-height: 100%; height: auto!important; height: 100%; margin: 10px auto -23px; min-width: 972px; } /* sticky footer */
 
 #header { height: 105px; display: block; }
 #header img, #header h1 { float: left; }
@@ -68,7 +68,7 @@ top: -24px; }
 #legend_sex div, #legend_ethnicity div { height: 20px; }
 
 
-#slider_arrow {width:2px;position:absolute;top:20px;height:30px;background:black;-webkit-transition: left 1s ease-in;-moz-transition:left 1s ease-in;-o-transition:left 1s ease-in;}
+#slider_arrow {background:url("/images/arrow.png") no-repeat;  width: 22px; height: 11px; position:absolute;top:-40px;margin-left:12px;height:30px;-webkit-transition: left 1s ease-in;-moz-transition:left 1s ease-in;-o-transition:left 1s ease-in;}
 @-webkit-keyframes resize {
 	0% {
 		padding: 0;
@@ -80,6 +80,8 @@ top: -24px; }
 		padding: 0 100px;
 	}
 }
+
+#years li { cursor:pointer; }
 
  
 #male 		{ width: 50%; background:#29E2D8; }
@@ -103,6 +105,8 @@ top: -24px; }
 				opacity: 0.5;
 
 			}
+			
+			#title2004 { display: none; }
 
 #selection a:hover	{ color: #29E2D8; opacity: .8; }
 #selection a.active	{ color: #0f949b; opacity: 1; }
