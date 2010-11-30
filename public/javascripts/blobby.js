@@ -2,7 +2,7 @@
   /* * * * * * * *
    * Tweakables  *
    * * * * * * * */
-  var BLOB_MARGIN = 40; //minimum margin between blob and center blob
+  var BLOB_MARGIN = 50; //minimum margin between blob and center blob
   var BLOB_PADDING = 20; //for the text labels;
   var BLOB_AREA_EXPONENT = 1; //exponent for children to area
   var BLOB_ANIMATION_DURATION = 1000;

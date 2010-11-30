@@ -68,7 +68,7 @@ top: -24px; }
 #legend_sex div, #legend_ethnicity div { height: 20px; }
 
 
-#slider_arrow {background:url("/images/arrow.png") no-repeat;  width: 22px; height: 11px; position:absolute;top:-40px;margin-left:12px;height:30px;-webkit-transition: left 1s ease-in;-moz-transition:left 1s ease-in;-o-transition:left 1s ease-in;}
+#slider_arrow {background:url("/images/arrow.png") no-repeat; left:96px; width: 22px; height: 11px; position:absolute;top:-40px;margin-left:12px;height:30px;-webkit-transition: left 1s ease-in;-moz-transition:left 1s ease-in;-o-transition:left 1s ease-in;}
 @-webkit-keyframes resize {
 	0% {
 		padding: 0;
