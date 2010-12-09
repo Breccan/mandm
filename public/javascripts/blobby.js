@@ -20,6 +20,7 @@
    * * * * * * * * * * */
   var blobbyContext = {
     blobs : [],
+    current_step : 0,
     //prepend to array so new ones get drawn under old ones.
     //the first added is the spawn point. we want this to be the last drawn.
     add_blob : function(blob){
@@ -266,12 +267,13 @@
           context.center_blob = blob;
         }
         context.draw();
-        var i = 0;
+        context.current_step = 0;
         context.interval = setInterval(function(){
           $.advance_slider(data_params.year);
-          blob.spawn(data.left[i]);
-          i++;
-          if (i == data.left.length){
+          if (data_params.year == context.current_step + 1)
+          blob.spawn(data.left[context.current_step]);
+          context.current_step++;
+          if (context.current_step == data.left.length){
             //load the next year.
             clearInterval(context.interval);
             data_params.year++;
