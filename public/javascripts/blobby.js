@@ -15,6 +15,7 @@
   var BLOB_TEXT_COLOUR_ON_BACKGROUND = '#999'
   var BLOB_TEXT_COLOUR_ON_BLOB = 'white'
   var BLOB_TEXT_HEIGHT = 15 //used for maths in the positioning of the text.
+  var last_step = 0;
   /* * * * * * * * * * *
    * Context Extension *
    * * * * * * * * * * */
@@ -242,7 +243,9 @@
   }
   $.extend(Blob.prototype, BlobPrototype);
 	$.fn.load_blobs = function(data_params){
-    var context = $(this)[0].getContext('2d');
+    if (!context) {
+      var context = $(this)[0].getContext('2d');
+    }
     if (context){
       if (!context.add_blobs){
         $.extend(context, blobbyContext);
@@ -268,9 +271,12 @@
         }
         context.draw();
         context.current_step = 0;
+        if (last_step != 0 && data_params.year != last_step + 1){
+          updateBlobDifference(context, data_params.year, last_step, data);
+        }
+        last_step = data_params.year;
         context.interval = setInterval(function(){
           $.advance_slider(data_params.year);
-          if (data_params.year == context.current_step + 1)
           blob.spawn(data.left[context.current_step]);
           context.current_step++;
           if (context.current_step == data.left.length){
@@ -282,6 +288,16 @@
         }, BLOB_STEP_INTERVAL)
       }
     });
+  },
+  updateBlobDifference = function(context, from, to, data) {
+          var data_set = data.left[context.current_step];
+          $.each(context.blobs, function(blob){
+            var that = this;
+            var value_segment = $.select_one(data_set, function(){if (this.key == that.name ){ return this} });
+            if (value_segment) {
+              this.value = value_segment["value"];
+            }
+          });
   }
   
 	$.advance_slider = function(year){
